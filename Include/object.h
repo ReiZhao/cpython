@@ -2,7 +2,7 @@
 #define Py_OBJECT_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C" {      //allow hybird compilation between C and other programming languages
 #endif
 
 
@@ -67,6 +67,7 @@ typedef struct _typeobject PyTypeObject;
 
 #ifdef Py_TRACE_REFS
 /* Define pointers to support a doubly-linked list of all live heap objects. */
+/* One Macros represents two lines of codes */
 #define _PyObject_HEAD_EXTRA            \
     struct _object *_ob_next;           \
     struct _object *_ob_prev;
@@ -74,7 +75,8 @@ typedef struct _typeobject PyTypeObject;
 #define _PyObject_EXTRA_INIT 0, 0,
 
 #else
-#  define _PyObject_HEAD_EXTRA
+#  define _PyObject_HEAD_EXTRA      // uncomplete definition, when use, 
+                                    //needs statement like: _PyObject_HEAD_EXTRA xxx
 #  define _PyObject_EXTRA_INIT
 #endif
 
